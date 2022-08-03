@@ -40,7 +40,7 @@ data:
       defVersion: 1.0.1
       ingressClassName: ""
       ingressController: ""
-      ingressHost: http://localhost:3017
+      ingressHost: http://local.codefresh.io:8081
       internalIngressHost: ""
       repo: https://github.com/alexey-korolev-codefresh/runtime-4
       version: 0.0.438
