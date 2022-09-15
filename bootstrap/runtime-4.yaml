@@ -9,41 +9,35 @@ data:
       name: runtime-4
       namespace: runtime-4
     spec:
+      accessMode: ""
       bootstrapSpecifier: github.com/codefresh-io/cli-v2/manifests/argo-cd
       cluster: https://192.168.99.100:43863
       components:
-      - isInternal: false
-        name: events
+      - name: events
         type: kustomize
-        url: github.com/codefresh-io/cli-v2/manifests/argo-events?ref=v0.0.455
+        url: github.com/codefresh-io/cli-v2/manifests/argo-events?ref=v0.0.516
         wait: true
-      - isInternal: false
-        name: rollouts
+      - name: rollouts
         type: kustomize
-        url: github.com/codefresh-io/cli-v2/manifests/argo-rollouts?ref=v0.0.455
-        wait: false
-      - isInternal: false
-        name: workflows
+        url: github.com/codefresh-io/cli-v2/manifests/argo-rollouts?ref=v0.0.516
+      - name: workflows
         type: kustomize
-        url: github.com/codefresh-io/cli-v2/manifests/argo-workflows?ref=v0.0.455
-        wait: false
-      - isInternal: false
-        name: app-proxy
+        url: github.com/codefresh-io/cli-v2/manifests/argo-workflows?ref=v0.0.516
+      - name: app-proxy
+        syncWave: 9
         type: kustomize
-        url: github.com/codefresh-io/cli-v2/manifests/app-proxy?ref=v0.0.455
-        wait: false
-      - isInternal: false
-        name: sealed-secrets
+        url: github.com/codefresh-io/cli-v2/manifests/app-proxy?ref=v0.0.516
+      - name: sealed-secrets
         type: kustomize
-        url: github.com/codefresh-io/cli-v2/manifests/sealed-secrets?ref=v0.0.455
-        wait: false
-      defVersion: 1.0.1
-      ingressClassName: ""
-      ingressController: ""
+        url: github.com/codefresh-io/cli-v2/manifests/sealed-secrets?ref=v0.0.516
+      - feature: ingressless
+        name: codefresh-tunnel-client
+        type: helm
+        url: github.com/codefresh-io/codefresh-tunnel-charts/codefresh-tunnel-client?ref=0.1.1
+      defVersion: 2.0.0
       ingressHost: http://local.codefresh.io:8081
-      internalIngressHost: ""
       repo: https://github.com/alexey-korolev-codefresh/runtime-4
-      version: 0.0.455
+      version: 0.0.516
 kind: ConfigMap
 metadata:
   creationTimestamp: null
